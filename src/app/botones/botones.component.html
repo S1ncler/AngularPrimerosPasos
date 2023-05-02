@@ -1,0 +1,42 @@
+<div>
+  <button
+    [ngClass]="{
+      disabled: buttonDisabled
+    }"
+    class="btn btn-danger"
+    (click)="colortexto('rojo')"
+  >
+    color rojo
+  </button>
+  <button
+    [disabled]="buttonDisabled"
+    class="btn btn-success mx-3"
+    (click)="colortexto('verde')"
+  >
+    color verde
+  </button>
+  <button
+    [class.disabled]="buttonDisabled"
+    class="btn btn-primary"
+    (click)="colortexto('azul')"
+  >
+    color azul
+  </button>
+</div>
+
+<p [class]="text_color">texto cambio color</p>
+
+<button class="btn btn-secondary" (click)="actDeac()">
+  Activar / desactivar
+</button>
+
+<p>{{ buttonDisabled }}</p>
+
+<div class="d-flex align-content-between justify-content-between">
+  <button class="btn btn-primary" (click)="cambioImg(1)">Imagen 1</button>
+  <button class="btn btn-secondary" (click)="cambioImg(2)">Imagen 2</button>
+  <button class="btn btn-danger" (click)="cambioImg(3)">Imagen 3</button>
+  <button class="btn btn-danger" (click)="cambioImg(0)">no imagen</button>
+</div>
+
+<img [src]="srcImg" class="w-25 h-25" alt="" />

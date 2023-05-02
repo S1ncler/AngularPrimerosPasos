@@ -1,0 +1,17 @@
+<input
+  type="text"
+  class="form-control"
+  placeholder="Escribe tu nombre pendejo"
+  #name
+/>
+<button class="btn btn-primary mt-2" (click)="mostrar(name.value)">
+  mostrar en consola
+</button>
+<div class="alert alert-primary mt-3" *ngIf="alertaVisibel; else mensaje">
+  <p>Se ha enviado el mensaje</p>
+  <button class="btn btn-danger" (click)="cerrar()">cerrar</button>
+</div>
+
+<ng-template #mensaje>
+  <div class="alert alert-danger mt-4">Mensaje de prueba</div>
+</ng-template>

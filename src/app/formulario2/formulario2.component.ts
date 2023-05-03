@@ -7,14 +7,18 @@ import { Persona } from '../persona';
   styleUrls: ['./formulario2.component.css'],
 })
 export class Formulario2Component implements OnInit {
-  persona: Persona = {
+  arroba = "@"
+  punto = "."
+  persona = {
     nombre: '',
-    edad: parseInt("")
+    edad: "",
+    email: ""
   };
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   enviar() {
     console.log(this.persona)

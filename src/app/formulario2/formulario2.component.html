@@ -1,29 +1,78 @@
 <div class="card">
   <div class="card-body">
-    <form (ngSubmit)="enviar()">
+    <form (ngSubmit)="enviar()" #form="ngForm">
       <div class="mb-2">
         <label class="form-label"> Nombre: </label>
         <input
-        name="nombre"
+          name="nombre"
           type="text"
           class="form-control"
           placeholder="Por favor ingrese un nombre"
           [(ngModel)]="persona.nombre"
+          required
+          #name="ngModel"
         />
+        <div class="alert alert-danger" [hidden]="name.valid || name.pristine">
+          El campo nombre es obligatorio
+        </div>
       </div>
+
       <div class="mb-2">
         <label class="form-label"> Edad: </label>
         <input
-        name="edad"
+          name="edad"
           type="number"
           class="form-control"
           placeholder="Por favor ingrese una edad"
           [(ngModel)]="persona.edad"
+          required
+          #age="ngModel"
         />
+        <div class="alert alert-danger" [hidden]="age.valid || age.pristine">
+          El campo edad es obligatorio
+        </div>
+        <div
+          class="alert alert-danger"
+          [hidden]="(age.value >= 18 && age.value <= 120) || age.pristine"
+          #valEdad
+        >
+          La edad debe estar entre 18 y 120 años
+        </div>
       </div>
-      <button class="btn btn-primary">Enviar</button>
+      <div class="mb-2">
+        <label class="form-label"> Correo: </label>
+        <input
+          name="Email"
+          type="email"
+          class="form-control"
+          placeholder="Por favor ingrese un email"
+          [(ngModel)]="persona.email"
+          required
+          #email="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          [hidden]="email.valid || email.pristine"
+        >
+          El campo edad es obligatorio
+        </div>
+        <div
+          class="alert alert-danger"
+          [hidden]="
+            (email.value.includes(arroba) && email.value.includes(punto)) ||
+            email.pristine
+          "
+          #valCorreo
+        >
+          Ingrese un correo electronico valido
+        </div>
+      </div>
+      <button
+        class="btn btn-primary"
+        [disabled]="!form.valid && valEdad.hidden && valCorreo.hidden"
+      >
+        Enviar
+      </button>
     </form>
   </div>
 </div>
-
-{{persona | json}}

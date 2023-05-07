@@ -1,1 +1,3 @@
-<p>children works!</p>
+<h2>Componente hijo</h2>
+<!-- se llama a la funcion que devuelve la variable al componente padre cada vez que se preciona una tecla en el input -->
+<input type="text" class="form-control" (keyup)="emitTitleChange()" [(ngModel)]="title" placeholder="Escribe un titulin">

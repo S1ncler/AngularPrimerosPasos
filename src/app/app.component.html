@@ -1,5 +1,38 @@
 <div class="container">
-  <h1>{{ title }}</h1>
+  <!--
+  <h2>Componente padre</h2>
 
-  <app-children></app-children>
+  <input type="text" class="form-control mb-4" [(ngModel)]="title" placeholder="Escribe un titulin">
+  manera compleja de hacerlo
+  <app-children [title]="title" (titleChange)="title = $event"></app-children>
+
+  manera facil de hacerlo
+  <app-children [(title)]="title"></app-children>
+  -->
+  <!--
+  <h2> servicios </h2>
+
+  <app-add-messages></app-add-messages>
+  <app-list-messagges></app-list-messagges>
+  -->
+  <!--
+  <h1>Tema: Enrutamiento</h1>
+  <router-outlet></router-outlet>
+  -->
+  <h1>Tema: Enrutamiento</h1>
+
+  <nav>
+    <ul>
+      <li>
+        <a routerLink="home" routerLinkActive="active">home</a>
+      </li>
+      <li>
+        <a routerLink="contact" routerLinkActive="active">contact</a>
+      </li>
+      <li>
+        <a routerLink="about" routerLinkActive="active">about</a>
+      </li>
+    </ul>
+  </nav>
+  <router-outlet></router-outlet>
 </div>

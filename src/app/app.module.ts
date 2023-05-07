@@ -12,6 +12,7 @@ import { Formulario2Component } from './formulario2/formulario2.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormularioReactivoComponent } from './formulario-reactivo/formulario-reactivo.component';
 import { FormularioBuilderComponent } from './formulario-builder/formulario-builder.component';
+import { ChildrenComponent } from './children/children.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormularioBuilderComponent } from './formulario-builder/formulario-buil
     SwitchComponent,
     Formulario2Component,
     FormularioReactivoComponent,
-    FormularioBuilderComponent
+    FormularioBuilderComponent,
+    ChildrenComponent
   ],
   imports: [
     BrowserModule,

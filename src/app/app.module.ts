@@ -8,7 +8,6 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { BuclesComponent } from './bucles/bucles.component';
 import { SwitchComponent } from './switch/switch.component';
 import { Formulario2Component } from './formulario2/formulario2.component';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormularioReactivoComponent } from './formulario-reactivo/formulario-reactivo.component';
 import { FormularioBuilderComponent } from './formulario-builder/formulario-builder.component';
@@ -18,9 +17,13 @@ import { ListMessaggesComponent } from './list-messagges/list-messagges.componen
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
-
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CoursesDetailComponent } from './courses-detail/courses-detail.component';
+import { ContactInfoComponent } from './contact-info/contact-info.component';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { AppRoutingModule } from './app-routing.module';
 
 const routes: Routes = [
   {
@@ -29,7 +32,17 @@ const routes: Routes = [
   },
   {
     path: 'contact',
-    component: ContactComponent
+    component: ContactComponent,
+    children: [
+      {
+        path: "",
+        component: ContactInfoComponent
+      },
+      {
+        path: "details",
+        component: ContactDetailsComponent
+      }
+    ]
   },
   {
     path: 'about',
@@ -39,6 +52,14 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: "courses",
+    component: CoursesComponent
+  },
+  {
+    path: "courses/:course",
+    component: CoursesDetailComponent
   },
   {
     path: '**',
@@ -63,13 +84,18 @@ const routes: Routes = [
     HomeComponent,
     ContactComponent,
     AboutComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CoursesComponent,
+    CoursesDetailComponent,
+    ContactInfoComponent,
+    ContactDetailsComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
